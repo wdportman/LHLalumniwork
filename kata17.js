@@ -6,51 +6,59 @@ const blocksAway = function(directions) {
 
   let current;
 
-  //refactor to use switch statement
-
   for (const direction of directions) {
     // Right:
     if (direction === 'right') {
-      if (!current) {
-        current = 'east';
-      } else if (current === 'east') {
-        current = 'south';
-      } else if (current === 'west') {
-        current = 'north';
-      } else if (current === 'south') {
-        current = 'west';
-      } else if (current === 'north') {
-        current = 'east';
+      switch (current) {
+        case undefined:
+          current = 'east';
+          break;
+        case 'east':
+          current = 'south';
+          break;
+        case 'west':
+          current = 'north';
+          break;
+        case 'south':
+          current = 'west';
+          break;
+        case 'north':
+          current = 'east';
       };
     // Left:
     } else if (direction === 'left') {
-      if (!current) {
-        current = 'north';
-      } else if (current === 'east') {
-        current = 'north';
-      } else if (current === 'west') {
-        current = 'south';
-      } else if (current === 'south') {
-        current = 'east';
-      } else if (current === 'north') {
-        current = 'west';
+      switch (current) {
+        case undefined:
+          current = 'north';
+          break;
+        case 'east':
+          current = 'north';
+          break;
+        case 'west':
+          current = 'south';
+          break;
+        case 'south':
+          current = 'east';
+          break;
+        case 'north':
+          current = 'west';
       };
     // Number:
     } else {
-      if (current === 'north') {
-        output.north += direction;
-      };
-      if (current === 'south') {
-        output.north -= direction;
-      };
-      if (current === 'east') {
-        output.east += direction;
-      };
-      if (current === 'west') {
-        output.east -= direction;
+      switch (current) {
+        case 'north':
+          output.north += direction;
+          break;
+        case 'south':
+          output.north -= direction;
+          break;
+        case 'east':
+          output.east += direction;
+          break;
+        case 'west':
+          output.east -= direction;
       };
     };
-    // console.log('current:', current, '\n output:', output);
   };
 
   return output;
