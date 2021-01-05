@@ -36,7 +36,36 @@ const convertToSquareCode = function(message) {
 
 };
 
+
+const convertFromSquareCode = function(message) {
+  const messageArray = message.split(' ');
+  const sqrt = messageArray.length;
+
+  let outputArray = [];
+
+  for (let i = 0; i < sqrt; i++) {
+    let word = '';
+    for (const row of messageArray) {
+      if (row[i]) {
+        word += row[i];
+      };
+    };
+    outputArray.push(word);
+  };
+
+  const finalOutput = outputArray.join('');
+
+  return finalOutput;
+};
+
+//to:
 console.log(convertToSquareCode("chill out"));
 console.log(convertToSquareCode("feed the dog"));
 console.log(convertToSquareCode("have a nice day"));
 console.log(convertToSquareCode("if man was meant to stay on the ground god would have given us roots"));
+
+//from:
+console.log(convertFromSquareCode("clu hlt io"));
+console.log(convertFromSquareCode("fto ehg ee dd"));
+console.log(convertFromSquareCode("hae and via ecy"));
+console.log(convertFromSquareCode("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau"));
