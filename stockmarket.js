@@ -1,6 +1,6 @@
 // Brute force:
 
-const maxProfit = function(inputArray) {
+const findMaxProfit = function(inputArray) {
   
   let maxProfit = -Infinity;
 
@@ -17,7 +17,4 @@ const maxProfit = function(inputArray) {
 
 };
 
-console.log(maxProfit([45, 24, 35, 31, 40, 38, 11]))
-
-
-// More elegant:
+console.log(findMaxProfit([45, 24, 35, 31, 40, 38, 11]))
